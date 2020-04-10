@@ -1,0 +1,10 @@
+extends layout
+
+block content
+form(action="/tasks/add", method="post")
+label(for="title")
+| Tytuł
+br
+input(type="text" id="title" name="title")
+br
+input(type="submit", value="Dodaj")
