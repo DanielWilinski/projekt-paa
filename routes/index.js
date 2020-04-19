@@ -1,10 +1,18 @@
+const store = require('../store')
+
 var router = require('koa-router')();
 
-router.get('/', function *(next) {
-  yield this.render('index', {
-    title: 'Hello World Koa!'
-  });
-});
+
+router.get('/', async (ctx, next) => {
+  tasks = await store.listTasks()
+  await ctx.render('index', { tasks })
+})
+
+
+
+
+
+
 
 router.get('/foo', function *(next) {
   yield this.render('index', {
